@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); // To parse JSON in request bodies
 
-app.get("/generate", async (req, res) => {
+app.get("./backend", async (req, res) => {
   const { input } = req.query;
   const apiKey = process.env.OPEN_AI_KEY; // Access the API key from environment variable
 
