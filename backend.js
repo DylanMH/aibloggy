@@ -34,4 +34,4 @@ const generateContent = async (userInput) => {
   }
 };
 
-module.exports = generateContent;
+export default generateContent;
