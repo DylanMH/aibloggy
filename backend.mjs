@@ -1,4 +1,4 @@
-const fetch = import("node-fetch");
+const fetch = require("node-fetch");
 
 const generateContent = async (userInput) => {
   const apiKey = process.env.OPEN_AI_KEY;

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("submitUserInput")
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
-      const generatedContent = await generateContent(userInput, apiKey);
+      const generatedContent = await generateContent(userInput);
 
       if (generatedContent) {
         document.getElementById("blogContent").textContent =
