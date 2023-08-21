@@ -1,11 +1,12 @@
+import generateContent from "./backend.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("submitUserInput")
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
-      const generateContentModule = await import("./backend.mjs"); // Import the module
-      const generateContent = generateContentModule.default; // Access the default exported function
-      const generatedContent = await generateContent(userInput);
+      const apiKey = process.env.OPEN_AI_KEY; // You need to provide the API key here
+      const generatedContent = await generateContent(userInput, apiKey);
 
       if (generatedContent) {
         document.getElementById("blogContent").textContent =
@@ -13,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+
+// Rest of your script.js code
 
 // Rest of your code remains unchanged...
 
