@@ -15,9 +15,10 @@ on:
 
 env:
   DEPLOYMENT_FOLDER: ./
+  openAIKey: ${{ secrets.OPEN_AI_KEY }}
 
 jobs:
-# Please do not rename this job
+  # Please do not rename this job
   build-project:
     name: build aibloggy
     runs-on: ubuntu-latest
@@ -25,9 +26,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
-# Please do not touch the following action
+      # Please do not touch the following action
       - name: Store deployment content
         uses: ionos-deploy-now/artifact-action@v1
         with:
