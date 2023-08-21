@@ -31,12 +31,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.17.1"
-          
+
       - name: Set env variable
         run: echo "OPEN_AI_KEY=${OPEN_AI_KEY}" >> $GITHUB_ENV
 
       - name: generate content
-        run: node backend.mjs
+        run: node backend.js
 
 
       # Please do not touch the following action
