@@ -15,7 +15,7 @@ on:
 
 env:
   DEPLOYMENT_FOLDER: ./
-  OPEN_AI_KEY: ${{ OPEN_AI_KEY }}
+  OPEN_AI_KEY: ${{ secrets.OPEN_AI_KEY }}
 
 jobs:
   # Please do not rename this job
