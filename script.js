@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("submitUserInput")
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
-      const apiKey = process.env.OPEN_AI_KEY; // You need to provide the API key here
       const generatedContent = await generateContent(userInput, apiKey);
 
       if (generatedContent) {
