@@ -40,19 +40,6 @@ jobs:
           config-file: .deploy-now/aibloggy/config.yaml
           action: upload
 
-name: Generate and Deploy Blog Content
- on:
-  workflow_call:
-    inputs:
-      site-url:
-        required: true
-        type: string
-      branch-id:
-        required: true
-        type: string
-
-jobs:
-
   generate-content:
     name: Generate Blog Content
     runs-on: ubuntu-latest
@@ -72,6 +59,8 @@ jobs:
         run: node backend.js
         env:
           OPENAI_API_KEY: ${{ secrets.OPEN_AI_KEY }}
+        id: generate-content
+        continue-on-error: true
 
       - name: Display generated content
         run: node script.js
