@@ -36,7 +36,7 @@ jobs:
         run: echo "OPEN_AI_KEY=${OPEN_AI_KEY}" >> $GITHUB_ENV
 
       - name: generate content
-        run: node backend.js
+        run: node backend.mjs
 
 
       # Please do not touch the following action
