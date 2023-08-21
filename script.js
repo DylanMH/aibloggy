@@ -8,7 +8,7 @@ const storedContent = localStorage.getItem("generatedContent");
 if (storedContent) {
   document.getElementById("blogContent").innerHTML = storedContent;
 }
-const config = require("./config");
+import config from "./config";
 
 const formatContent = (content) => {
   const paragraphs = content.split("\n\n");
