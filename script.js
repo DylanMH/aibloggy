@@ -1,10 +1,10 @@
-const generateContent = import("./backend.js");
-
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("submitUserInput")
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
+      const generateContentModule = await import("./backend.js"); // Import the module
+      const generateContent = generateContentModule.default; // Access the default exported function
       const generatedContent = await generateContent(userInput);
 
       if (generatedContent) {
@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+
+// Rest of your code remains unchanged...
 
 const storedContent = localStorage.getItem("generatedContent");
 if (storedContent) {
