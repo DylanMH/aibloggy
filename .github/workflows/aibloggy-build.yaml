@@ -15,7 +15,6 @@ on:
 
 env:
   DEPLOYMENT_FOLDER: ./
-  openAIKey: ${{ secrets.OPEN_AI_KEY }}
 
 jobs:
   # Please do not rename this job
@@ -27,6 +26,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: "recursive"
+      - name: Run script.js
+        run: node script.js "${{ secrets.OPEN_AI_KEY}}"
 
       # Please do not touch the following action
       - name: Store deployment content
