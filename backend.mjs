@@ -1,9 +1,9 @@
-const fetch = import("node-fetch");
+const fetch = require("node-fetch");
 
 const generateContent = async (userInput) => {
-  const apiKey = process.env.OPEN_AI_KEY;
   const userMessage = `Write an original blog on ${userInput} that has a title without the "Title: " prefix and the rest of the paragraphs also dont have prefixes or labels.`;
   const API_URL = "https://api.openai.com/v1/chat/completions";
+  const apiKey = process.env.OPEN_AI_KEY; // Access the API key from environment variable
 
   const requestOptions = {
     method: "POST",
@@ -33,4 +33,4 @@ const generateContent = async (userInput) => {
   }
 };
 
-export default generateContent;
+module.exports = generateContent;

@@ -1,22 +1,21 @@
-import generateContent from "./backend.mjs";
-
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("submitUserInput")
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
-      const generatedContent = await generateContent(userInput);
 
-      if (generatedContent) {
-        document.getElementById("blogContent").textContent =
-          formatContent(generatedContent);
+      const response = await fetch(`/generate?input=${userInput}`);
+      if (response.ok) {
+        const generatedContent = await response.text();
+        if (generatedContent) {
+          document.getElementById("blogContent").innerHTML =
+            formatContent(generatedContent);
+        }
       }
     });
 });
 
 // Rest of your script.js code
-
-// Rest of your code remains unchanged...
 
 const storedContent = localStorage.getItem("generatedContent");
 if (storedContent) {
@@ -34,21 +33,3 @@ const formatContent = (content) => {
 
   return `${formattedTitle}${formattedParagraphs}`;
 };
-
-/* const animatedDisplay = (contentElement, content) => {
-  const words = content.split(/\s+/); // Split content into words
-  let currentWordIndex = 0;
-  let accumulatedContent = "";
-  const animateWord = () => {
-    if (currentWordIndex < words.length) {
-      const word = words[currentWordIndex];
-      const formattedWord = formatContent(word);
-      accumulatedContent += formattedWord;
-      contentElement.innerHTML = accumulatedContent;
-      currentWordIndex++;
-      setTimeout(animateWord, 150);
-    }
-  };
-  animateWord();
-};
- */
