@@ -1,9 +1,9 @@
-const fetch = require("node-fetch");
-
 const generateContent = async (userInput) => {
   const userMessage = `Write an original blog on ${userInput} that has a title without the "Title: " prefix and the rest of the paragraphs also dont have prefixes or labels.`;
   const API_URL = "https://api.openai.com/v1/chat/completions";
   const apiKey = process.env.OPEN_AI_KEY; // Access the API key from environment variable
+
+  const fetchModule = await import("node-fetch"); // Dynamically import node-fetch
 
   const requestOptions = {
     method: "POST",
@@ -24,7 +24,7 @@ const generateContent = async (userInput) => {
   };
 
   try {
-    const response = await fetch(API_URL, requestOptions);
+    const response = await fetchModule.default(API_URL, requestOptions);
     const data = await response.json();
     return data.choices[0].message.content.trim();
   } catch (error) {
