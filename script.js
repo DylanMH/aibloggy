@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("submitUserInput")
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
-      const generateContentModule = await import("./backend.js"); // Import the module
+      const generateContentModule = await import("./backend.cjs"); // Import the module
       const generateContent = generateContentModule.default; // Access the default exported function
       const generatedContent = await generateContent(userInput);
 
