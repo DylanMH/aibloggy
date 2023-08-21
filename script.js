@@ -1,4 +1,4 @@
-const generateContent = require("./backend");
+const generateContent = import("./backend.js");
 
 document.addEventListener("DOMContentLoaded", () => {
   document
