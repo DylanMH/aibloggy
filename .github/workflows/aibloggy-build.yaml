@@ -30,7 +30,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18.17.1"
+          type: "module"
 
       - name: Set env variable
         run: echo "OPEN_AI_KEY=${OPEN_AI_KEY}" >> $GITHUB_ENV
