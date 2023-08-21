@@ -50,24 +50,3 @@ jobs:
           folder: ${{ env.DEPLOYMENT_FOLDER }}
           config-file: .deploy-now/aibloggy/config.yaml
           action: upload
-
-           # New job for running the Express server
-  run-server:
-    name: Run Express Server
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          submodules: "recursive"
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install server dependencies
-        run: npm install
-
-      - name: Run Express Server
-        run: node server.js
