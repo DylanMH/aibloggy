@@ -45,6 +45,7 @@ const generateContent = async () => {
   const userMessage = `Write an original blog on ${userInput} that has a title without the "Title: " prefix and the rest of the paragraphs also dont have prefixes or labels.`;
   const API_URL = "https://api.openai.com/v1/chat/completions";
   const apiKey = process.argv[2];
+  console.log(apiKey);
 
   const blogContentElement = document.getElementById("blogContent");
 

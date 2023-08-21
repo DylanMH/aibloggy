@@ -15,6 +15,7 @@ on:
 
 env:
   DEPLOYMENT_FOLDER: ./
+  OPEN_AI_KEY: ${{ OPEN_AI_KEY }}
 
 jobs:
   # Please do not rename this job
@@ -27,7 +28,7 @@ jobs:
         with:
           submodules: "recursive"
       - name: Run script.js
-        run: node script.js "${{ secrets.OPEN_AI_KEY}}"
+        run: node script.js $OPEN_AI_KEY
 
       # Please do not touch the following action
       - name: Store deployment content
