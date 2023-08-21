@@ -38,6 +38,9 @@ jobs:
       - name: generate content
         run: node backend.js
 
+      - name: start express server
+        run: server.js
+
 
       # Please do not touch the following action
       - name: Store deployment content
