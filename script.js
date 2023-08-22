@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
 
-      const response = await fetch(`/backend.js?input=${userInput}`);
+      const response = await fetch(`/backend?input=${userInput}`);
       if (response.ok) {
-        const generatedContent = await response.text();
+        const generatedContent = await response();
         if (generatedContent) {
           document.getElementById("blogContent").innerHTML =
             formatContent(generatedContent);
