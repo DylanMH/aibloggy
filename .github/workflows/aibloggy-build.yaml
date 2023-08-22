@@ -16,24 +16,13 @@ env:
 jobs:
   # Build job
   build-project:
-    name: Build aibloggy
+    name: build aibloggy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: "recursive"
-          
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.17.1"  # Use the Node.js version you need
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build Project
-        run: npm run build  # Adjust the command for your build process
 
   # Start server job
   start-server:
@@ -55,7 +44,7 @@ jobs:
         run: npm install
 
       - name: Start Server
-        run: node backend.js  # Start your Express server
+        run: node server.js  # Start your Express server
 
   # Deploy job
   deploy:
