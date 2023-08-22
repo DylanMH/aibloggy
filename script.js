@@ -4,7 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
 
-      const response = await fetch(`/backend?input=${userInput}`);
+      const response = await fetch("/backend", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input: userInput }), // Send user input as JSON
+      });
+
       if (response.ok) {
         const generatedContent = await response.text();
         if (generatedContent) {
