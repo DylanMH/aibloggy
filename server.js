@@ -1,5 +1,11 @@
 const express = require("express");
-const generateContent = require("./backend"); // Assuming your backend script is in the same directory
+
+let generateContent;
+try {
+  generateContent = require("./backend.js");
+} catch (error) {
+  console.log(error);
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
