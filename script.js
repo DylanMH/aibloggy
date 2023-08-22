@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const response = await fetch(`/backend?input=${userInput}`);
       if (response.ok) {
-        const generatedContent = await response();
+        const generatedContent = await response.text();
         if (generatedContent) {
           document.getElementById("blogContent").innerHTML =
             formatContent(generatedContent);
