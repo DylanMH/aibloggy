@@ -26,6 +26,7 @@ const generateContent = async (userInput) => {
   try {
     const response = await fetchModule.default(API_URL, requestOptions);
     const data = await response.json();
+    console.log(data);
     return data.choices[0].message.content.trim();
   } catch (error) {
     console.error("Error:", error);
