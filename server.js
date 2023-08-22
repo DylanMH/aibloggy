@@ -1,5 +1,11 @@
 const express = require("express");
-const fetch = require("node-fetch");
+
+let generateContent;
+try {
+  generateContent = require("./backend.js");
+} catch (error) {
+  console.log(error);
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,13 +39,16 @@ app.get("/backend", async (req, res) => {
   };
 
   try {
-    const response = await fetch(API_URL, requestOptions);
+    // Use dynamic import for node-fetch
+    const fetchModule = await import("node-fetch");
+    const response = await fetchModule.default(API_URL, requestOptions);
+
     const data = await response.json();
     const generatedContent = data.choices[0].message.content.trim();
-    res.send(generatedContent); // Send the generated content to the frontend
+    res.send(generatedContent);
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).send("Error generating content"); // Send an error response if needed
+    res.status(500).send("Error generating content");
   }
 });
 
