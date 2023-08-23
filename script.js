@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log("fetching content");
       const response = await fetch("https://server.aibloggy.com:443/backend", {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
