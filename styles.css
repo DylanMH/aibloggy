@@ -44,6 +44,7 @@
   overflow: auto;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+  height: 30rem !important;
 }
 
 .content-container::-webkit-scrollbar {
