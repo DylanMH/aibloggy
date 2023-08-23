@@ -5,13 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const userInput = document.getElementById("userInput").value;
 
       console.log("fetching content");
-      const response = await fetch("https://server.aibloggy.com:443/backend", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ input: userInput }), // Send user input as JSON
-      });
+      const response = await fetch(
+        `https://server.aibloggy.com:443/backend?input=${userInput}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       console.log(response.status);
       if (response.ok) {
