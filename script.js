@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
 
+      console.log("fetching content");
       const response = await fetch("https://74.208.189.197:443/backend", {
         method: "POST",
         headers: {
@@ -12,12 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ input: userInput }), // Send user input as JSON
       });
 
+      console.log(response.status);
       if (response.ok) {
         const generatedContent = await response.text();
         if (generatedContent) {
           document.getElementById("blogContent").innerHTML =
             formatContent(generatedContent);
         }
+      } else {
+        console.log(response.statusText);
       }
     });
 });
