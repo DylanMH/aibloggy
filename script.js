@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const userInput = document.getElementById("userInput").value;
 
       console.log("fetching content");
-      const response = await fetch("https://74.208.189.197:443/backend", {
+      const response = await fetch("http://74.208.189.197:443/backend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
