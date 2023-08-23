@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", async () => {
       const userInput = document.getElementById("userInput").value;
 
-      const response = await fetch("http://74.208.189.197:3000/backend", {
+      const response = await fetch("https://74.208.189.197:3000/backend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
