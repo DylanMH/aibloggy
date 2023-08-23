@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const userInput = document.getElementById("userInput").value;
 
       console.log("fetching content");
-      const response = await fetch("https://server.aibloggy.com/backend", {
+      const response = await fetch("https://server.aibloggy.com:443/backend", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
