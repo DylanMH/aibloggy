@@ -1,15 +1,33 @@
 :root {
-  --gray-50: #f7f7f8;
-  --gray-100: #ececf1;
-  --gray-200: #d9d9e3;
-  --gray-300: #c5c5d2;
-  --gray-400: #acacbe;
-  --gray-500: #8e8ea0;
-  --gray-600: #565869;
-  --gray-700: #40414f;
-  --gray-800: #343541;
-  --gray-900: #202123;
-  --gray-950: #050509;
+  --page-background: #343541;
+  --bio-background: rgba(248, 249, 250);
+  --main-background: #ffffff;
+  --content-background: #acacbe;
+  --bio-text: #8e8ea0;
+  --content-text: #343541;
+  --header-text: #8e8ea0;
+  --button-color: #acacbe;
+  --button-hover: #343541;
+}
+
+[data-theme="dark"] {
+  --page-background: #000;
+  --bio-background: #121212;
+  --main-background: #252525;
+  --content-background: #2b2b2e;
+  --bio-text: #fff;
+  --content-text: #018786;
+  --header-text: #8e8ea0;
+  --button-color: #03dacf;
+  --button-hover: #018786;
+}
+
+.bg-white {
+  background-color: var(--main-background) !important;
+}
+
+.bg-light {
+  background-color: var(--bio-background) !important;
 }
 
 .text-indent {
@@ -17,35 +35,35 @@
 }
 
 .bg-secondary {
-  background-color: var(--gray-800) !important;
+  background-color: var(--page-background) !important;
 }
 
 .bg-dark {
-  background-color: var(--gray-900) !important;
+  background-color: var(--dark-gray) !important;
 }
 
 .bg-body {
-  background-color: var(--gray-400) !important;
+  background-color: var(--content-background) !important;
 }
 
 .btn-secondary {
-  background-color: var(--gray-500) !important;
+  background-color: var(--button-color) !important;
 }
 
 .btn-secondary:hover {
-  background-color: var(--gray-700) !important;
+  background-color: var(--button-hover) !important;
 }
 
 .text-primary {
-  color: var(--gray-500) !important;
+  color: var(--bio-text) !important;
 }
 
 .text-secondary {
-  color: var(--gray-800) !important;
+  color: var(--bio-text) !important;
 }
 
 .text-body {
-  color: var(--gray-800) !important;
+  color: var(--content-text) !important;
 }
 
 .content-container {
